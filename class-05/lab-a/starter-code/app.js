@@ -12,6 +12,7 @@ function sum(a, b) { //eslint-disable-line
     var s= a+b;
     var st= "The sum of 4 and 7 is 11."
     var arr=[s,st];
+    
     return arr;
  
 }
