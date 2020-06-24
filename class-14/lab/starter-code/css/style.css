@@ -1,1 +1,61 @@
 /* TODO: Make it awesome */
+
+h1{ 
+    padding-top: 20px;
+    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+    color: azure;
+    background-color: blueviolet;
+    text-align: center;
+    font-size: 250%;
+       
+}
+
+header nav li{
+    padding-left: 20px;
+    font-weight: 600;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: blueviolet;
+    float: left;
+    font-size: 150%;
+    margin-left: 25px ;
+
+}
+.copy{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 150%;
+    margin-left: 25px ;
+    margin-top: 50px;
+}
+main section h1 {
+    padding-right: 13%;
+    padding-bottom: 20px;
+}
+footer{
+    position: fixed;
+    bottom: 5%;
+    left: 40%;
+    color: lightcoral;
+
+}
+fieldset  {
+    margin-left: 30%;
+    margin-top: 40px;
+
+}
+#cartContents{
+color: lightslategrey;
+margin-left: 25px;
+}
+
+table{
+    border: rgb(79, 82, 83) solid;
+    margin-top: 100px;
+    margin-left: 30%;
+
+}
+th , tr , td{
+    border: rgb(21, 171, 221) solid;
+    text-align: center;
+    font-size: 150%;
+}

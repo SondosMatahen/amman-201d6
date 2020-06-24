@@ -3,6 +3,7 @@
 
 // Create an event listener so that when the delete link is clicked, the removeItemFromCart method is invoked.
 var table = document.getElementById('cart');
+var mainContainer = table.firstElementChild.nextElementSibling;
 table.addEventListener('click', removeItemFromCart);
 var cart;
 
@@ -20,18 +21,32 @@ function renderCart() {
 
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
 function clearCart() {
-localStorage.clear();
+ var mainContainer = table.firstElementChild.nextElementSibling;
+ var parentContainer= mainContainer.parentElement;
+ parentContainer.removeChild(mainContainer);
+ var newTbody= document.createElement('tbody');
+ parentContainer.appendChild(newTbody);
+ //localStorage.clear();
+ //delete table;
 
 }
+
+
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
 
+  var mainContainer = table.firstElementChild.nextElementSibling;
   for(var i=0 ; i < cart.items.length ; i++){
     var tr = document.createElement('tr');
+    tr.setAttribute('id' ,`${i}`);
     var td1= document.createElement('td');
     td1.innerHTML="<a href=# >x</a>";
     tr.appendChild(td1);
+    //td1.setAttribute('ID','a'+i);
+   // console.log("ID+"+ td1.setAttribute('ID',i))
+   
+    //tr.appendChild(td1);
     var td2=document.createElement('td');
     td2.textContent= cart.items[i].product;
     tr.appendChild(td2);
@@ -51,10 +66,21 @@ function showCart() {
 }
 
 function removeItemFromCart(event) {
-
- cart.removeItem()
+//event=event || window.event;
+//event=event.target || event.srcElement
+// 
+//var ID = event.target.id;
+var ID=event.target.parentElement.parentElement.getAttribute('id')
+console.log(event.target.parentElement.parentElement.getAttribute('id'));
+cart.removeItem(event)
+//console.log(event.target.id)
+//console.log(ID)
+//console.log(event.composedPath())
+//console.log(event.id)
  cart.saveToLocalStorage();
- renderCart();
+ clearCart();
+ // showCart();
+// renderCart();
   //table.deletRow()
   // TODO: When a delete link is clicked, use cart.removeItem to remove the correct item
   // TODO: Save the cart back to local storage

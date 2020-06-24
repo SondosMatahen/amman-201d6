@@ -21,8 +21,10 @@ Cart.prototype.saveToLocalStorage = function() {
 };
 
 Cart.prototype.removeItem = function(item) {
- // delete cartitem[number];
- cart.splice(item);
+  //console.log(item)
+  var rowId = event.target.parentElement.parentElement.getAttribute('id')
+  cart.items.splice(rowId,1);
+  //delete cart.item
   
   //event.target.parentElement.parentElement.remove();
   // TODO: Fill in this instance method to remove one item from the cart.
