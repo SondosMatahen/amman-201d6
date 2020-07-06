@@ -59,12 +59,11 @@ function addSelectedItemToCart() {
   // TODO: using those, add one item to the Cart
 }
 
-var count =0
 // TODO: Update the cart count in the header nav with the number of items in the Cart
 function updateCounter() {
   var itemCount =document.getElementById('itemCount')
-  count +=1 ;
-  itemCount.textContent='    '+count;
+ 
+  itemCount.textContent='    '+cart.items.length;
   
 }
 

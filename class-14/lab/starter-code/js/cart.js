@@ -20,17 +20,21 @@ function renderCart() {
 
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
 function clearCart() {
-localStorage.clear();
+table.tBodies[0].innerHTML="";
 
 }
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
-
+var tBody=table.tBodies[0];
   for(var i=0 ; i < cart.items.length ; i++){
     var tr = document.createElement('tr');
+    tr.id=i;
     var td1= document.createElement('td');
-    td1.innerHTML="<a href=# >x</a>";
+    //td1.innerHTML="<a href=# id='("${i}")'>x</a>";
+    td1.textContent="x"
+    td1.classList.add('remover')
+    td1.id=i;
     tr.appendChild(td1);
     var td2=document.createElement('td');
     td2.textContent= cart.items[i].product;
@@ -38,7 +42,8 @@ function showCart() {
     var td3=document.createElement('td');
     td3.textContent= cart.items[i].quantity;
     tr.appendChild(td3);
-    table.appendChild(tr);
+    tBody.appendChild(tr);
+    
 
   }
   // TODO: Find the table body
@@ -51,8 +56,8 @@ function showCart() {
 }
 
 function removeItemFromCart(event) {
-
- cart.removeItem()
+if(event.target.classList.contains('remover')){
+ cart.removeItem(event.target.id)
  cart.saveToLocalStorage();
  renderCart();
   //table.deletRow()
@@ -60,7 +65,7 @@ function removeItemFromCart(event) {
   // TODO: Save the cart back to local storage
   // TODO: Re-draw the cart table
 
-}
+}}
 
 // This will initialize the page and draw the cart on screen
 renderCart();
